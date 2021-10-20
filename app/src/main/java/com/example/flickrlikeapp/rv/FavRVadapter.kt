@@ -4,17 +4,17 @@ import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.constraintlayout.widget.ConstraintSet
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.flickrlikeapp.ImageView
+import com.example.flickrlikeapp.databinding.FavPhotosBinding
 import com.example.flickrlikeapp.databinding.PhotoBinding
 
-class RVadapter(val context: Context, val list: ArrayList<RvData>): RecyclerView.Adapter<RVadapter.ViewHolder>() {
-    class ViewHolder(val binding: PhotoBinding): RecyclerView.ViewHolder(binding.root)
+class FavRVadapter(val context: Context, val list: ArrayList<RvData>): RecyclerView.Adapter<FavRVadapter.ViewHolder>() {
+    class ViewHolder(val binding: FavPhotosBinding): RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v = PhotoBinding.inflate(LayoutInflater.from(context), parent, false)
+        val v = FavPhotosBinding.inflate(LayoutInflater.from(context), parent, false)
         return ViewHolder(v)
     }
 
@@ -22,23 +22,20 @@ class RVadapter(val context: Context, val list: ArrayList<RvData>): RecyclerView
         val item = list[position]
         val image = holder.binding.ivImage
         holder.binding.apply {
-            tvTitle.text = item.title
+           // tvTitle.text = item.title
 
 
         }
-
-
-
-       Glide
-            .with(context)
-            .load(item.imageLink)
-           .centerCrop()
-            .into(image)
+//        Glide
+//            .with(context)
+//            .load(item.imageLink)
+//            .centerCrop()
+//            .into(image)
 
         holder.binding.root.setOnClickListener {
             val intent = Intent(context, ImageView::class.java)
-            intent.putExtra("title", item.title)
-            intent.putExtra("image",item.imageLink)
+//            intent.putExtra("title", item.title)
+//            intent.putExtra("image",item.imageLink)
             context.startActivity(intent)
         }
     }

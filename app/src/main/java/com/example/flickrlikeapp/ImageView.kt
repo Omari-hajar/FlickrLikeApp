@@ -27,5 +27,13 @@ class ImageView : AppCompatActivity() {
             val intent = Intent(this@ImageView, MainActivity::class.java)
             startActivity(intent)
         }
+
+        binding.btnFav.setOnClickListener {
+            binding.btnFav.setBackgroundResource(R.drawable.heart2)
+            val intent = Intent(this@ImageView, FavActivity::class.java)
+            intent.putExtra("title", title)
+            intent.putExtra("image", imageLink)
+            startActivity(intent)
+        }
     }
 }

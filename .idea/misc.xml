@@ -7,8 +7,10 @@
         <entry key="app/src/main/res/drawable/chevron_left.xml" value="0.140625" />
         <entry key="app/src/main/res/drawable/heart.xml" value="0.140625" />
         <entry key="app/src/main/res/drawable/srch_shape.xml" value="0.140625" />
+        <entry key="app/src/main/res/layout/activity_fav.xml" value="0.11041666666666666" />
         <entry key="app/src/main/res/layout/activity_image_view.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.12447916666666667" />
+        <entry key="app/src/main/res/layout/fav_photos.xml" value="0.125" />
         <entry key="app/src/main/res/layout/photo.xml" value="0.1" />
       </map>
     </option>

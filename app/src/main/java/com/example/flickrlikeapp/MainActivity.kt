@@ -6,6 +6,7 @@ import android.widget.SearchView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.flickrlikeapp.databinding.ActivityMainBinding
 import com.example.flickrlikeapp.rv.RVadapter
 import com.example.flickrlikeapp.rv.RvData
@@ -27,12 +28,16 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.refreshPhotosList("nature")
 
-        binding.rvMain.layoutManager = GridLayoutManager(this, 2)
+        //binding.rvMain.layoutManager = GridLayoutManager(this, 2)
+        binding.rvMain.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+
+        binding.rvMain.setHasFixedSize(true)
         val search = binding.svSearch
         search.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
-                list.clear()
+
                 if (query != null) {
+                    list.clear()
                     viewModel.refreshPhotosList(query)
 
                 }else{
@@ -65,8 +70,9 @@ class MainActivity : AppCompatActivity() {
                val id = i.id
                val title = i.title
                val server = i.server
-               val imageLink =  "https://farm$farm.staticflickr.com/$server/${id}_$secret.jpg"
-               list.add(RvData(i.title, "", imageLink))
+             // val imageLink =  "https://farm$farm.staticflickr.com/$server/${id}_$secret.jpg"
+               val imageLink =  "https://live.staticflickr.com/$farm/$server/${id}_$secret.jpg"
+               list.add(RvData(i.title, imageLink))
            }
            binding.rvMain.adapter = RVadapter(this, list)
            binding.rvMain.adapter!!.notifyDataSetChanged()

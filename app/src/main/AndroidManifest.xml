@@ -13,6 +13,9 @@
         android:theme="@style/Theme.FlickrLikeApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".FavActivity"
+            android:exported="true" />
+        <activity
             android:name=".ImageView"
             android:exported="true" />
         <activity
